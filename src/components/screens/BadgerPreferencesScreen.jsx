@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, Switch } from 'react-native';
-import { usePreferences } from "../contexts/PreferencesContext";
+
 import BadgerCard from './BadgerCard';
+import NewsContext from "../contexts/NewsContext";
 
 function BadgerPreferencesScreen() {
-    const { userPreferences, togglePreference } = usePreferences();
+    const [prefs, setPrefs] = useContext(NewsContext);
+
+    const togglePreference = (tag) => {
+        setPrefs((prevPrefs) => ({
+          ...prevPrefs,
+          [tag]: !prevPrefs[tag],
+        }));
+    };
 
     return (
     <View style={{ flex: 1, padding: 10 }}>
         {
-            Object.keys(userPreferences).map((tag) => (
+            Object.keys(prefs).map((tag) => (
                 <BadgerCard key={tag}>
                     <Text>{tag}</Text>
                     <Switch
-                        value={userPreferences[tag]}
+                        value={prefs[tag]}
                         onValueChange={() => togglePreference(tag)}
                     />
                 </BadgerCard>

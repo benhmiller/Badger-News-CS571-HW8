@@ -1,16 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Text, View, ScrollView, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
-import { usePreferences } from "../contexts/PreferencesContext";
 import BadgerCard from "./BadgerCard";
+import NewsContext from "../contexts/NewsContext";
 
 function BadgerNewsScreen(props) {
     const [newsArticles, setNewsArticles] = useState([]);                    // Stores articles fetched from API
     const [loading, setLoading] = useState(true);                            // Indicates whether screen loading or not
     const navigation = useNavigation();                                      // Utilized for stackable navigation
-    const { userPreferences, togglePreference, addTags } = usePreferences(); // Import context
-
+    //const { userPreferences, togglePreference, addTags } = usePreferences(); // Import context
+    const [prefs, setPrefs] = useContext(NewsContext);
     // Fetch News Articles from API
     useEffect(() => {
         fetch('https://cs571.org/api/f23/hw8/articles', {
@@ -27,14 +27,18 @@ function BadgerNewsScreen(props) {
             const tags = data.reduce((acc, article) => {
                 return acc.concat(article.tags);
             }, []);
-            addTags([...new Set(tags)]); // Use Set to remove duplicates
+
+            setPrefs(tags.reduce((acc, tag) => {
+                acc[tag] = true;
+                return acc;
+            }, {}));
         })
         .catch(error => {
             console.error('Error fetching news articles:', error);
             setLoading(false); // Set loading to false in case of an error
         });
     }, []);
-
+    
     // Function Definiton for Stackable Navigation on Card Press
     function handlePress(articleId, title, image) {
         navigation.push('Article', { articleId, title, image });
@@ -42,8 +46,8 @@ function BadgerNewsScreen(props) {
 
     // Create a Filtered List fo Articles from the Initially Fetched List Based on User Preferences
     const filteredArticles = newsArticles.filter(article => {
-        return Object.keys(userPreferences).some(tag => { // Retrieve all tags in user preferences and determine if at least one is toggled on and is included in the current article's tags
-            return userPreferences[tag] && article.tags.includes(tag);
+        return Object.keys(prefs).some(tag => {
+            return prefs[tag] && article.tags.includes(tag);
         }); 
     });
 

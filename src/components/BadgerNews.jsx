@@ -5,13 +5,15 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import BadgerPreferencesScreen from './screens/BadgerPreferencesScreen';
 import NewsFeedStack from './navigation/NewsFeedStack';
+import NewsContext from './contexts/NewsContext';
 
 const BadgerNews = () => {
-    //const [prefs, setPrefs] = useState({});
+    const [prefs, setPrefs] = useState({});
     const NewsTabs = createBottomTabNavigator();
 
     return (
         <>
+        <NewsContext.Provider value={[prefs, setPrefs]}>
         <NavigationContainer>
             <NewsTabs.Navigator screenOptions={{
                 "tabBarActiveTintColor": "red",
@@ -36,6 +38,7 @@ const BadgerNews = () => {
                 />
             </NewsTabs.Navigator>
         </NavigationContainer>
+        </NewsContext.Provider>
         </>
     );
 }
