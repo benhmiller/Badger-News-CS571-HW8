@@ -99,16 +99,16 @@ The questions below will ask you about the mobile design and design patterns use
 
 1. What mobile design pattern(s) do you use in your current implementation of Badger News?
 
-INSERT YOUR RESPONSE HERE.
+Within the current implementation of Badger News, the mobile design patterns employed include: stacks, cards, bars, and filtering. By organizing each news article into a contained "card" on the landing page, the application provides a convenient entry point for accessing each story. Next, through the implementation of both stack and tab navigation, the program exemplifies stack and bar design patterning. Finally, the utilization of switches allows users to filter articles, and thereby contributes to the overall "filtering" aspect of the app.
 
 2. Do you believe that Badger News (this homework) or Badger Bakery (last homework) was more mobile-friendly? Support your answer.
 
-INSERT YOUR RESPONSE HERE.
+Personally, I believe Badger News provides a more mobile-friendly application. By employing mulitple screens and navigation types, Badger News offers a more functional and aesthetic user experience.
 
 3. What other gesture(s) could be added to Badger News? What additional functionality would these gesture(s) support?
 
-INSERT YOUR RESPONSE HERE.
+One possible gesture that could be added to Badger News is the ability to pinch and zoom on images. By performing a two-finger pinch, users could then further examine the cover images of each article, thereby ascertaining a greater understanding of the covered topic. A second possible gesture could be a long press. By long pressing on an article, the applciation could support the functionality of prompting the user to send the article link to a friend via text message or email.
 
 4. Is there opportunity to add any microinteraction(s)? If so, what would be the trigger-action pair(s)?
 
-INSERT YOUR RESPONSE HERE.
+Yes, numerous opportunities exist to add microinteractions. For example, we could add a like/dislike feature which enables the user to indicate whether or not they enjoyed an article. In this case, the trigger would consist of the user pressing a like/dislike button, while the action would involve the color of the button changing (visual feedback) and perhaps a vibration or sound (haptic or auditory feedback).
