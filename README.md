@@ -103,7 +103,7 @@ Within the current implementation of Badger News, the mobile design patterns emp
 
 2. Do you believe that Badger News (this homework) or Badger Bakery (last homework) was more mobile-friendly? Support your answer.
 
-Personally, I believe Badger News provides a more mobile-friendly application. By employing mulitple screens and navigation types, Badger News offers a more functional and aesthetic user experience.
+Personally, I believe Badger News provides a more mobile-friendly application. By employing mulitple screens and navigation types, Badger News offers a more functional and aesthetic user experience that takes greater advantage of the various technologies uniquely available on mobile systems.
 
 3. What other gesture(s) could be added to Badger News? What additional functionality would these gesture(s) support?
 
