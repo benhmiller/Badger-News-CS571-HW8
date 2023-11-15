@@ -10,7 +10,6 @@ export default function BadgerCard(props) {
 
 const styles = StyleSheet.create({
     card: {
-        flex: 1,
         padding: 10,
         marginBottom: 10,
         elevation: 5,

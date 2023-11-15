@@ -7,7 +7,7 @@ import BadgerPreferencesScreen from './screens/BadgerPreferencesScreen';
 import NewsFeedStack from './navigation/NewsFeedStack';
 
 const BadgerNews = () => {
-    const [prefs, setPrefs] = useState({});
+    //const [prefs, setPrefs] = useState({});
     const NewsTabs = createBottomTabNavigator();
 
     return (
@@ -20,8 +20,10 @@ const BadgerNews = () => {
                     name="News"
                     component={NewsFeedStack}
                     options={{
+                        headerShown: false,
                         tabBarIcon: ({ color, size }) => 
                             (<FontAwesome name="newspaper-o" size={size} color={color} />)
+                        
                     }}
                 />
                 <NewsTabs.Screen
